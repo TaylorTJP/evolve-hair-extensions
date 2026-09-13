@@ -419,7 +419,7 @@ function sigPad(key){
 function photoStrip(){
   const d=el("div","field");d.style.marginTop="12px";d.appendChild(el("div","lab",'Before photos<span class="opt">optional</span>'));
   const strip=el("div","photostrip");
-  (f.photoUrls||[]).forEach(u=>{const th=el("img","photothumb");th.src=u;th.onclick=()=>{lightbox=u;render();};strip.appendChild(th);});
+  (f.photoUrls||[]).forEach(u=>{const th=el("img","photothumb");th.src=imgUrl(u);th.onclick=()=>{lightbox=u;render();};strip.appendChild(th);});
   const busy=!!uploading.before;const cam=el("button","cambtn",busy?"⏳ Uploading…":(f.photoUrls.length?"📷 Add another":"📷 Add photo"));cam.disabled=busy;
   cam.onclick=()=>{const inp=document.createElement("input");inp.type="file";inp.accept="image/*";inp.setAttribute("capture","environment");
     inp.onchange=async()=>{const file=inp.files&&inp.files[0];if(!file)return;uploading.before=true;render();let ok=false;
@@ -428,7 +428,8 @@ function photoStrip(){
     inp.click();};
   strip.appendChild(cam);d.appendChild(strip);return d;
 }
-function lightboxEl(){const l=el("div","lightbox");const i=el("img");i.src=lightbox;l.appendChild(i);l.onclick=()=>{lightbox=null;render();};return l;}
+function imgUrl(u){const m=String(u||"").match(/drive\.google\.com\/uc\?export=view&id=([^&]+)/);return m?"https://drive.google.com/thumbnail?id="+m[1]+"&sz=w1200":u;}
+function lightboxEl(){const l=el("div","lightbox");const i=el("img");i.src=imgUrl(lightbox);l.appendChild(i);l.onclick=()=>{lightbox=null;render();};return l;}
 
 /* ---- submit ---- */
 function missingText(){
@@ -505,7 +506,7 @@ function histCard(r){
   c.appendChild(el("div","sub",r.date+" "+r.time+" · "+r.docket));
   const row=(k,v)=>{if(!v)return;const d=el("div","row");d.appendChild(el("div","k",k));d.appendChild(el("div","v",String(v)));c.appendChild(d);};
   row("Phone",r.phone);row("Email",r.email);row("First set",r.q_first_set);row("Pregnant / bf",r.q_pregnant);row("Body changes",r.q_body+(r.q_body_note?" · "+r.q_body_note:""));row("Hot tools",r.hot_tools);row("Checked",r.checks);row("Condition",r.condition);row("Materials",r.materials);row("Flags",r.flag_reasons);row("Notes",r.notes);row("Terms",r.terms_accepted);
-  if(r.photo_urls){const st=el("div","photostrip");st.style.marginTop="8px";String(r.photo_urls).split(" ").filter(Boolean).forEach(u=>{const th=el("img","photothumb");th.src=u;th.onclick=()=>{lightbox=u;render();};st.appendChild(th);});c.appendChild(st);}
+  if(r.photo_urls){const st=el("div","photostrip");st.style.marginTop="8px";String(r.photo_urls).split(" ").filter(Boolean).forEach(u=>{const th=el("img","photothumb");th.src=imgUrl(u);th.onclick=()=>{lightbox=u;render();};st.appendChild(th);});c.appendChild(st);}
   if(r.client_sig){const st=el("div","photostrip");st.style.marginTop="8px";const th=el("img","photothumb");th.style.width="140px";th.style.objectFit="contain";th.style.background="#fff";th.src=r.client_sig;st.appendChild(th);c.appendChild(st);}
   return c;
 }
