@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evolve Hair Extensions · QR card</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Jost:wght@400;500;600&display=swap">
+<style>
+  :root{--ink:#2B2323;--ink2:#5C5252;--muted:#8C8383;--bg:#F7F0F0;--pink:#E8C9CC}
+  *{box-sizing:border-box}
+  body{margin:0;background:#DDD;font-family:"Jost",-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);display:flex;flex-direction:column;align-items:center;padding:24px 12px}
+  .bar{max-width:148mm;width:100%;display:flex;gap:8px;justify-content:center;margin-bottom:16px}
+  .bar button{border:0;border-radius:10px;padding:10px 16px;font:inherit;font-weight:600;background:var(--ink);color:#fff}
+  .bar button.alt{background:#fff;color:var(--ink);border:1.5px solid #ccc}
+  .card{background:var(--bg);width:148mm;height:210mm;padding:14mm 10mm;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 4px 30px #0002}
+  body.a6 .card{width:105mm;height:148mm;padding:9mm 7mm}
+  .logo{width:44mm;height:44mm;border-radius:50%;object-fit:cover}
+  body.a6 .logo{width:30mm;height:30mm}
+  .brand{letter-spacing:.3em;text-transform:uppercase;font-size:14pt;margin-top:6mm}
+  .title{font-family:"Allura",cursive;font-size:34pt;line-height:1;margin-top:2mm}
+  .sub{color:var(--ink2);font-size:13pt;margin-top:2mm}
+  body.a6 .brand{font-size:10pt;margin-top:4mm} body.a6 .title{font-size:26pt} body.a6 .sub{font-size:10pt}
+  .qrwrap{position:relative;background:#fff;border:1.5pt solid var(--pink);border-radius:5mm;padding:6mm;margin-top:7mm}
+  body.a6 .qrwrap{padding:4mm;margin-top:5mm}
+  #qr{width:78mm;height:78mm} body.a6 #qr{width:56mm;height:56mm}
+  #qr img,#qr canvas{width:100%!important;height:100%!important;display:block}
+  .centre{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:19mm;height:19mm;border-radius:50%;background:#fff;padding:1.5mm}
+  body.a6 .centre{width:14mm;height:14mm}
+  .centre img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+  .url{color:var(--muted);font-size:10pt;margin-top:6mm}
+  .how{color:var(--ink2);font-size:10pt;margin-top:2mm}
+  body.a6 .url,body.a6 .how{font-size:8pt}
+  @media print{
+    body{background:#fff;padding:0;display:block}
+    .bar{display:none}
+    .card{box-shadow:none;margin:0}
+    @page{size:A5;margin:0}
+    body.a6 @page{size:A6}
+  }
+</style>
+</head>
+<body>
+<div class="bar">
+  <button onclick="window.print()">Print</button>
+  <button class="alt" onclick="document.body.classList.toggle('a6');document.getElementById('sz').textContent=document.body.classList.contains('a6')?'A6':'A5'">Size: <span id="sz">A5</span></button>
+</div>
+<div class="card">
+  <img class="logo" src="logo/image.jpg" alt="Evolve Hair Extensions">
+  <div class="brand">Evolve Hair Extensions</div>
+  <div class="title">Client consultation</div>
+  <div class="sub">Scan to fill in your form</div>
+  <div class="qrwrap">
+    <div id="qr"></div>
+    <div class="centre"><img src="logo/image.jpg" alt=""></div>
+  </div>
+  <div class="url">taylortjp.github.io/evolve-hair-extensions</div>
+  <div class="how">Point your phone camera at the code and tap the link</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  // The form lives one folder up from this page, whatever the repo is called.
+  var url = location.href.replace(/qr\.html.*$/, "");
+  new QRCode(document.getElementById("qr"), {text:url, width:600, height:600, colorDark:"#2B2323", colorLight:"#ffffff", correctLevel:QRCode.CorrectLevel.H});
+  document.querySelector(".url").textContent = url.replace(/^https?:\/\//,"").replace(/\/$/,"");
+</script>
+</body>
+</html>
