@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F1E4E5">
+<title>Evolve Hair Extensions · Client Consultation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Jost:wght@300;400;500;600&display=swap">
+<style>
+  :root{
+    --ink:#2B2323; --ink2:#5C5252; --muted:#8C8383; --line:#E9DDDE; --bg:#F7F0F0; --card:#FFFFFF;
+    --pink:#E8C9CC; --pink-soft:#F6E9EA; --pink-deep:#B98289;
+    --ok:#4C8B63; --ok-soft:#E7F2EA; --warn:#B8542F; --warn-soft:#FBEAE3;
+    --r:14px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 "Jost",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  button,input,select,textarea{font:inherit;color:inherit}
+  .band{background:var(--pink);color:var(--ink);padding:16px 16px 12px;position:sticky;top:0;z-index:5;border-bottom:1px solid #E0C7CA}
+  .band-in{max-width:720px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .mark{font-weight:500;letter-spacing:.22em;font-size:13px;text-transform:uppercase}
+  .mark small{display:block;font-weight:400;letter-spacing:.04em;text-transform:none;font-size:12px;color:var(--ink2);margin-top:2px}
+  .docket{text-align:right;font-size:12px;color:var(--ink2);line-height:1.35}
+  .docket b{font-size:12px;letter-spacing:.08em;color:var(--ink)}
+  .toggle{display:flex;gap:6px;max-width:720px;margin:12px auto 0}
+  .toggle button{flex:1;background:transparent;border:1.5px solid #D9B9BD;color:var(--ink);border-radius:10px;padding:9px 6px;font-weight:500;font-size:14px;letter-spacing:.04em}
+  .toggle button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+  .coverage{height:4px;background:#00000010}
+  .coverage-fill{height:100%;background:var(--pink-deep);transition:width .25s}
+  .wrap{max-width:720px;margin:0 auto;padding:14px 14px 120px}
+  .hero{text-align:center;padding:18px 0 6px}
+  .hero img{width:150px;height:150px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 6px}
+  .hero .script{font-family:"Allura",cursive;font-size:44px;line-height:1;color:var(--ink);margin:4px 0 2px}
+  .hero .brand{letter-spacing:.3em;text-transform:uppercase;font-weight:400;font-size:15px}
+  .dots{border-top:3px dotted var(--ink);opacity:.35;margin:14px 0 2px}
+  section{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 14px;margin-bottom:12px}
+  section h2{margin:0 0 12px;font-size:14px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;color:var(--ink)}
+  section h2.bar{background:var(--pink);margin:-16px -14px 14px;padding:10px 14px;border-radius:var(--r) var(--r) 0 0;text-transform:none;letter-spacing:0;font-weight:600;font-size:15px}
+  .hint{color:var(--muted);font-size:13px;margin:-4px 0 10px}
+  .field{margin:0 0 12px}
+  .lab{display:block;font-weight:500;font-size:14px;margin:0 0 6px}
+  .lab .opt{color:var(--muted);font-weight:400;font-size:12px;margin-left:6px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media (max-width:440px){.two{grid-template-columns:1fr}}
+  input[type=text],input[type=tel],input[type=email],input[type=date],input[type=number],select,textarea{width:100%;border:0;border-bottom:1.5px solid var(--ink2);border-radius:0;padding:9px 2px;background:transparent;outline:none}
+  select{border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff}
+  input:focus,textarea:focus{border-bottom-color:var(--pink-deep)}
+  textarea{min-height:64px;resize:vertical;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-size:14px;font-weight:500;color:var(--ink2)}
+  .chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+  .chip.staff{padding:10px 16px;font-size:15px}
+  .yn{display:flex;gap:8px}
+  .yn button{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:11px;font-weight:600;color:var(--ink2)}
+  .yn button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+  .yn button.on.warnv{background:var(--warn);border-color:var(--warn)}
+  .q{border-top:1px solid var(--line);padding:12px 0 4px}
+  .q:first-of-type{border-top:0;padding-top:2px}
+  .q .qt{font-weight:500;font-size:15px;margin-bottom:8px}
+  .qrow{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .qrow .qt{margin:0;flex:1}
+  .qs{font-weight:400;font-size:12px;color:var(--muted);margin-top:3px}
+  .qrow .yn{flex:none;width:150px}
+  .flagpanel{background:var(--warn-soft);border:1.5px solid #EFC9B9;border-radius:10px;padding:10px 12px;margin-top:8px}
+  .tick{display:flex;align-items:flex-start;gap:10px;padding:9px 0}
+  .tick .box{width:22px;height:22px;background:var(--pink-soft);border:1.5px solid var(--pink);border-radius:4px;flex:none;display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;margin-top:1px}
+  .tick.on .box{background:var(--ink);border-color:var(--ink)}
+  .tick .t{font-size:15px;padding-left:10px;border-left:1.5px solid var(--ink2);line-height:1.3}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 12px}
+  @media (max-width:440px){.grid3{grid-template-columns:1fr 1fr}}
+  .pricebox{background:var(--pink-soft);border-radius:10px;padding:12px 14px;text-align:center;font-size:15px;line-height:1.6;margin-top:12px}
+  .pricebox b{display:block;font-weight:500;font-size:15px;margin-bottom:2px}
+  .terms{background:var(--pink-soft);border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.5}
+  .terms p{margin:0 0 8px}
+  .terms .shout{font-weight:700;font-style:italic;text-transform:uppercase;font-size:13px;letter-spacing:.02em}
+  .terms .decl{font-style:italic;font-weight:600}
+  .terms ol{margin:0 0 6px;padding-left:20px}
+  .terms li{margin-bottom:4px}
+  .mat{border:1.5px solid var(--line);border-radius:10px;padding:10px;margin-bottom:8px;display:grid;grid-template-columns:1fr;gap:8px}
+  .mat .row2{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end}
+  .mat .row2 input{border:1.5px solid var(--line);border-radius:10px;padding:10px 12px}
+  .mat .rm{background:none;border:0;color:var(--warn);font-size:13px;font-weight:600;padding:8px 4px}
+  .addbtn{border:1.5px dashed var(--pink);background:var(--pink-soft);color:var(--pink-deep);border-radius:10px;padding:10px;width:100%;font-weight:600}
+  .sig{border:1.5px solid var(--line);border-radius:10px;background:#fff;position:relative;touch-action:none}
+  .sig canvas{display:block;width:100%;height:150px;border-radius:10px}
+  .sig .clear{position:absolute;right:8px;top:8px;background:#fff;border:1px solid var(--line);border-radius:8px;font-size:12px;padding:4px 8px;color:var(--muted)}
+  .sig .ph{position:absolute;left:0;right:0;top:60px;text-align:center;color:#D5CCCA;font-size:14px;pointer-events:none}
+  .sigline{border-top:1.5px solid var(--ink);margin-top:8px;padding-top:6px;text-align:center;font-weight:600;font-size:13px}
+  .photostrip{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:2px 0 4px}
+  .photothumb{width:60px;height:60px;object-fit:cover;border-radius:8px;border:1.5px solid var(--line);background:#EEE}
+  .cambtn{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;font-weight:600;font-size:13px}
+  .submitbar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+  .submitbar .in{max-width:720px;margin:0 auto}
+  .send{width:100%;background:var(--ink);color:#fff;border:0;border-radius:12px;padding:15px;font-size:16px;font-weight:600;letter-spacing:.04em}
+  .send:disabled{background:#D9CFD1;color:#fff}
+  .missing{font-size:12px;color:var(--muted);text-align:center;margin:0 0 6px}
+  .receipt{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 18px;text-align:center}
+  .receipt .ok{width:64px;height:64px;border-radius:50%;background:var(--ok-soft);margin:0 auto 12px;position:relative}
+  .receipt .ok:after{content:"";position:absolute;left:22px;top:14px;width:14px;height:26px;border:solid var(--ok);border-width:0 4px 4px 0;transform:rotate(45deg)}
+  .receipt h2{margin:0 0 6px;font-family:"Allura",cursive;font-weight:400;font-size:38px}
+  .receipt .ref{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--bg);border-radius:8px;padding:8px;margin:12px 0;font-size:13px}
+  .receipt button{background:var(--ink);color:#fff;border:0;border-radius:10px;padding:12px 22px;font-weight:600}
+  .tally{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+  .tile{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}
+  .tile b{display:block;font-size:24px;font-weight:500}
+  .tile span{font-size:12px;color:var(--muted)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px}
+  .card .hd{display:flex;justify-content:space-between;gap:10px;font-weight:600}
+  .card .sub{color:var(--muted);font-size:12px;margin-bottom:6px}
+  .card .row{display:grid;grid-template-columns:120px 1fr;gap:8px;font-size:13px;padding:4px 0;border-top:1px solid var(--line)}
+  .card .row .k{color:var(--muted)}
+  .badge{display:inline-block;font-size:11px;font-weight:600;border-radius:999px;padding:3px 8px;background:var(--ok-soft);color:var(--ok);letter-spacing:.04em}
+  .badge.warn{background:var(--warn-soft);color:var(--warn)}
+  .empty{color:var(--muted);text-align:center;padding:24px 0;font-size:14px}
+  .err{color:var(--warn);font-size:13px;margin-top:6px}
+  .lightbox{position:fixed;inset:0;background:#000000CC;display:flex;align-items:center;justify-content:center;z-index:20}
+  .lightbox img{max-width:94vw;max-height:90vh;border-radius:8px}
+  .lock{margin-top:8px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/* =====================================================================
+   EVOLVE HAIR EXTENSIONS · CLIENT CONSULTATION
+   Phase 1. Mirrors the salon's paper "Client Information" form.
+   Everything that changes without the logic changing lives in this
+   config block.
+   ===================================================================== */
+
+// Apps Script /exec URL. While this is the placeholder the app stores
+// submissions in this browser only (localStorage) so it can be tested
+// end to end before the backend exists.
+const API_URL = "PASTE_YOUR_APPS_SCRIPT_URL";
+
+const PHOTOS_ENABLED = true;   // optional before photos
+const LOGO = "logo/image.jpg";
+
+// PIN for the History tab. Owner and seniors only.
+const HISTORY_PIN = "1234";
+
+// Yes / No questions from the paper form. flagOn = answer that gets the
+// owner's attention (opens a note box and marks the consult).
+const QUESTIONS = [
+  {key:"first_set", q:"Is this your first set of extensions?", flagOn:null},
+  {key:"pregnant",  q:"Are you pregnant or breastfeeding?",     flagOn:"yes", note:"Anything we should know?"},
+  {key:"body",      q:"Any big changes to your body or health recently (weight, illness, stress, medication)?", sub:"Totally normal, it just helps us choose the method that will be kindest to your hair.", flagOn:"yes", note:"Only what you are happy to share"},
+];
+const HOT_TOOLS = ["Never","Occasionally","A few times a week","Daily"];
+
+// Price guide shown on the form (display only, edit freely)
+const PRICE_GUIDE = [
+  ["Nano Beads","$720 - 910"],
+  ["Sewn in Weft","$450 - 895"],
+  ["Keratin Bonds","$350 - 1400"],
+];
+
+// "Please check any of the following"
+const CHECKS = ["Hair colouring","Oily hair","Psoriasis","Swimming","Sauna use","Hot tools","Wash daily","Salon quality products","Recent surgery"];
+// Any of these ticked flags the consult for the owner
+const CHECK_FLAGS = ["Psoriasis","Recent surgery"];
+
+// "How would you describe the typical condition of your hair"
+const CONDITIONS = ["Brittle","Dry","Soft","Oily","Split easily","Normal"];
+
+// Hair and scalp check (kept from the skeleton, answers flag the consult)
+const SCREENING = [
+  {key:"chem",    q:"Any colour, bleach or chemical service in the last 4 weeks?", flagOn:"yes", note:"What was done and when?"},
+  {key:"scalp",   q:"Any scalp sensitivity, irritation or conditions?",            flagOn:"yes", note:"Describe"},
+  {key:"allergy", q:"Any known allergies (adhesives, keratin, latex, hair dye)?",   flagOn:"yes", note:"List them"},
+  {key:"shed",    q:"Noticed hair thinning or shedding recently?",                  flagOn:"yes", note:"Since when?"},
+];
+
+// Materials pick list. FALLBACK ONLY: on load the app fetches the live
+// list from the sheet once the backend is on. Salon's real list to come.
+let MATERIALS = [
+  {id:"m1", label:"Nano bead · 20in · 1B natural black", group:"Nano beads"},
+  {id:"m2", label:"Nano bead · 20in · 4 chocolate", group:"Nano beads"},
+  {id:"m3", label:"Weft · 20in · 6 light brown", group:"Sewn in weft"},
+  {id:"m4", label:"Weft · 22in · 8 caramel", group:"Sewn in weft"},
+  {id:"m5", label:"Keratin · 18in · 60 ash blonde", group:"Keratin bonds"},
+  {id:"m6", label:"Nano beads · brown", group:"Consumables"},
+];
+const MATERIAL_UNITS = ["pack","piece","gram","row"];
+
+// Terms and conditions. The first two lines are from the paper form.
+// The numbered points are PLACEHOLDERS for the salon to confirm or change.
+const TERMS = {
+  headline:"We do not offer refunds. By signing this you are acknowledging our policy.",
+  points:[
+    "A deposit is required to secure your appointment and is non refundable.",
+    "Cancellations or changes need 48 hours notice or the deposit is forfeited.",
+    "Aftercare instructions must be followed. Damage caused by not following aftercare is not covered.",
+    "Maintenance appointments are recommended every 6 to 8 weeks.",
+    "Hair extensions are a custom order and cannot be returned once cut or fitted.",
+  ],
+  declaration:"I declare that I have read this consultation form thoroughly and I understand every question asked. I believe I have no medical condition that may affect the treatment. All of the given answers are correct and true to the best of my knowledge.",
+};
+
+/* ====================== STORAGE LAYER ====================== */
+// >>> BACKEND SWAP POINT <<<
+// live: POST flat record to Apps Script (Consults tab), GET ?action=lists,
+// GET ?action=records&client=<name or phone>. local: localStorage.
+function liveBackend(){return /^https?:\/\//.test(API_URL) && !API_URL.includes("PASTE_YOUR");}
+function newId(){return Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,6);}
+
+function flattenRec(r){
+  const o={id:r.id,date:r.date,time:r.time,docket:r.docket,
+    full_name:r.fullName,phone:r.phone,email:r.email,address:r.address};
+  QUESTIONS.forEach(x=>{o["q_"+x.key]=r.answers[x.key].v;o["q_"+x.key+"_note"]=r.answers[x.key].note;});
+  o.hot_tools=r.hotTools;
+  o.checks=r.checks.join(", ");
+  o.condition=r.conditions.join(", ");
+  SCREENING.forEach(x=>{o["scr_"+x.key]=r.screening[x.key].v;o["scr_"+x.key+"_note"]=r.screening[x.key].note;});
+  o.materials=r.materials.map(m=>m.label+" x"+m.qty+" "+m.unit).join(" | ");
+  o.materials_json=JSON.stringify(r.materials);
+  o.notes=r.notes;
+  o.terms_accepted=r.termsAccepted?"Yes":"No";
+  o.flagged=r.flagged?"Yes":"No";o.flag_reasons=r.flagReasons.join("; ");
+  o.photo_urls=(r.photoUrls||[]).join(" ");
+  o.client_sig=r.clientSig||"";
+  return o;
+}
+async function saveSubmission(rec){
+  const flat=flattenRec(rec);
+  if(liveBackend()){
+    await fetch(API_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(Object.assign({type:"consult"},flat))});return;
+  }
+  try{const all=JSON.parse(localStorage.getItem("evolve_consults")||"[]");all.push(flat);localStorage.setItem("evolve_consults",JSON.stringify(all));}catch(e){}
+}
+async function loadRecords(q){
+  q=(q||"").trim().toLowerCase();
+  if(liveBackend()){
+    try{const r=await fetch(API_URL+"?action=records"+(q?"&q="+encodeURIComponent(q):""));const d=await r.json();return Array.isArray(d)?d:[];}catch(e){return [];}
+  }
+  try{const all=JSON.parse(localStorage.getItem("evolve_consults")||"[]");return q?all.filter(x=>[x.full_name,x.phone,x.email].some(v=>String(v||"").toLowerCase().includes(q))):all;}catch(e){return [];}
+}
+async function loadLists(){
+  if(!liveBackend())return;
+  for(let i=0;i<4;i++){
+    try{const r=await fetch(API_URL+"?action=lists",{cache:"no-store"});const d=await r.json();if(d&&Array.isArray(d.materials)&&d.materials.length){MATERIALS=d.materials;return;}}catch(e){}
+    await new Promise(r=>setTimeout(r,1200));
+  }
+}
+async function uploadPhoto(dataUrl,slot){
+  if(!liveBackend())return dataUrl;
+  try{const r=await fetch(API_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({type:"photo",client:f.fullName,slot:slot,dataUrl:dataUrl})});const d=await r.json();return d&&d.url?d.url:"";}catch(e){return "";}
+}
+
+/* ====================== HELPERS ====================== */
+const $=(s,r=document)=>r.querySelector(s);
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
+const todayISO=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");};
+function prettyDate(iso){return new Date(iso+"T00:00:00").toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long",year:"numeric"});}
+function nowTime(){return new Date().toLocaleTimeString("en-AU",{hour:"numeric",minute:"2-digit"});}
+function initials(n){const p=n.trim().split(/\s+/);return (p.length>1?p.map(w=>w[0]).join(""):n.slice(0,3)).toUpperCase();}
+function fileToDataUrl(file,maxPx,q){return new Promise((res,rej)=>{const img=new Image();const u=URL.createObjectURL(file);img.onload=()=>{const s=Math.min(1,maxPx/Math.max(img.width,img.height));const c=document.createElement("canvas");c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);c.getContext("2d").drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(u);res(c.toDataURL("image/jpeg",q));};img.onerror=rej;img.src=u;});}
+
+/* ====================== STATE ====================== */
+let view="form", f=blankForm(), histUnlocked=false, pinTry="", pinErr="", histQ="", histData=null, uploading={}, lightbox=null;
+try{if(localStorage.getItem("evolve_hist_unlocked")==="1")histUnlocked=true;}catch(e){}
+function blankForm(){
+  const a={};QUESTIONS.forEach(x=>a[x.key]={v:"",note:""});
+  const s={};SCREENING.forEach(x=>s[x.key]={v:"",note:""});
+  return {fullName:"",phone:"",email:"",address:"",answers:a,hotTools:"",checks:[],conditions:[],screening:s,materials:[],notes:"",photoUrls:[],termsAccepted:false,clientSig:""};
+}
+function flagReasons(){
+  const r=[];
+  QUESTIONS.forEach(x=>{if(x.flagOn&&f.answers[x.key].v===x.flagOn)r.push(x.q);});
+  f.checks.forEach(c=>{if(CHECK_FLAGS.includes(c))r.push(c);});
+  SCREENING.forEach(x=>{if(x.flagOn&&f.screening[x.key].v===x.flagOn)r.push(x.q);});
+  return r;
+}
+function ynDone(list,store){return list.every(x=>{const a=store[x.key];return a.v&&(!(x.flagOn&&a.v===x.flagOn)||a.note.trim());});}
+function materialsDone(){return f.materials.every(m=>m.id&&Number(m.qty)>0);}
+function canSend(){return f.fullName.trim()&&f.phone.trim()&&ynDone(QUESTIONS,f.answers)&&f.hotTools&&f.conditions.length&&ynDone(SCREENING,f.screening)&&materialsDone()&&f.termsAccepted&&f.clientSig;}
+function progress(){
+  const c=[!!f.fullName.trim(),!!f.phone.trim(),!!f.email.trim(),ynDone(QUESTIONS,f.answers),!!f.hotTools,!!f.conditions.length,ynDone(SCREENING,f.screening),materialsDone(),f.termsAccepted,!!f.clientSig];
+  return Math.round(100*c.filter(Boolean).length/c.length);
+}
+
+/* ====================== RENDER ====================== */
+function render(){
+  const app=$("#app");app.innerHTML="";
+  app.appendChild(header());
+  if(view==="form"){app.appendChild(coverage());app.appendChild(consultForm());app.appendChild(submitBar());}
+  else renderHistory(app);
+  if(lightbox)app.appendChild(lightboxEl());
+}
+function header(){
+  const band=el("div","band");const inr=el("div","band-in");
+  inr.appendChild(el("div","mark","Evolve Hair Extensions<small>Client consultation</small>"));
+  const dk=el("div","docket");
+  dk.innerHTML=view==="form"?"<b>CON-"+todayISO().replace(/-/g,"")+(f.fullName.trim()?"-"+initials(f.fullName):"")+"</b><br>"+prettyDate(todayISO()):"<b>HISTORY</b><br>"+(histQ||"Look up a client");
+  inr.appendChild(dk);band.appendChild(inr);
+  const tg=el("div","toggle");
+  const b1=el("button",view==="form"?"on":"","Consultation");const b2=el("button",view==="hist"?"on":"","History");
+  b1.onclick=()=>{view="form";render();};b2.onclick=()=>{view="hist";render();};
+  tg.appendChild(b1);tg.appendChild(b2);band.appendChild(tg);return band;
+}
+function coverage(){const c=el("div","coverage");const fl=el("div","coverage-fill");fl.style.width=progress()+"%";c.appendChild(fl);return c;}
+function sect(title,bar){const s=el("section");const h=el("h2",bar?"bar":"",title);s.appendChild(h);return s;}
+function chips(list,isOn,onTap,cls){const w=el("div","chips");list.forEach(x=>{const c=el("button","chip"+(cls?" "+cls:"")+(isOn(x)?" on":""),x);c.onclick=()=>{onTap(x);render();};w.appendChild(c);});return w;}
+function yn(opts,cur,onPick){const w=el("div","yn");opts.forEach(o=>{const b=el("button",(cur===o.v?"on":"")+(o.cls?" "+o.cls:""),o.t);b.onclick=()=>{onPick(o.v);render();};w.appendChild(b);});return w;}
+function field(label,input,opt){const d=el("div","field");d.appendChild(el("div","lab",label+(opt?'<span class="opt">optional</span>':"")));d.appendChild(input);return d;}
+function txt(val,ph,onIn,type){const i=el("input");i.type=type||"text";i.value=val;i.placeholder=ph||"";i.oninput=()=>{onIn(i.value);};i.onblur=()=>{const s=$(".send");if(s)s.disabled=!canSend();const m=$(".missing");if(m)m.textContent=missingText();};return i;}
+function area(val,ph,onIn){const t=el("textarea");t.value=val;t.placeholder=ph||"";t.oninput=()=>{onIn(t.value);};t.onblur=()=>render();return t;}
+function tickList(list,isOn,onTap,cls){const w=el("div",cls||"");list.forEach(x=>{const t=el("div","tick"+(isOn(x)?" on":""));t.appendChild(el("div","box",isOn(x)?"✓":""));t.appendChild(el("div","t",x));t.onclick=()=>{onTap(x);render();};w.appendChild(t);});return w;}
+function toggleIn(arr,x){const i=arr.indexOf(x);i<0?arr.push(x):arr.splice(i,1);}
+function ynQuestions(list,store,parent){
+  list.forEach(x=>{
+    const a=store[x.key];const q=el("div","q");const row=el("div","qrow");
+    const qt=el("div","qt",x.q);if(x.sub)qt.appendChild(el("div","qs",x.sub));row.appendChild(qt);
+    row.appendChild(yn([{v:"yes",t:"Yes",cls:x.flagOn==="yes"?"warnv":""},{v:"no",t:"No",cls:x.flagOn==="no"?"warnv":""}],a.v,v=>{a.v=v;if(!(x.flagOn&&v===x.flagOn))a.note="";}));
+    q.appendChild(row);
+    if(x.flagOn&&a.v===x.flagOn){const p=el("div","flagpanel");p.appendChild(area(a.note,x.note||"Details",v=>{a.note=v;}));q.appendChild(p);}
+    parent.appendChild(q);
+  });
+}
+
+function consultForm(){
+  const wrap=el("div","wrap");let s;
+
+  // Logo + title, as on the paper form
+  const hero=el("div","hero");
+  const img=el("img");img.src=LOGO;img.alt="Evolve Hair Extensions";hero.appendChild(img);
+  hero.appendChild(el("div","script","Client Information"));
+  hero.appendChild(el("div","brand","Evolve Hair Extensions"));
+  wrap.appendChild(hero);
+
+  // Client details
+  s=sect("Client details");
+  s.appendChild(field("Full name",txt(f.fullName,"",v=>{f.fullName=v;})));
+  const two=el("div","two");
+  two.appendChild(field("Contact phone",txt(f.phone,"",v=>{f.phone=v;},"tel")));
+  two.appendChild(field("Email address",txt(f.email,"",v=>{f.email=v;},"email"),true));
+  s.appendChild(two);
+  s.appendChild(field("Address",txt(f.address,"",v=>{f.address=v;}),true));
+  wrap.appendChild(s);
+
+  // Questions + price guide
+  s=sect("About you");
+  ynQuestions(QUESTIONS,f.answers,s);
+  const q=el("div","q");q.appendChild(el("div","qt","How often do you use hot tools?"));
+  q.appendChild(chips(HOT_TOOLS,x=>f.hotTools===x,x=>{f.hotTools=x;}));s.appendChild(q);
+  const pb=el("div","pricebox");pb.innerHTML="<b>We offer a wide range of hair extensions</b>"+PRICE_GUIDE.map(p=>p[0]+" "+p[1]).join("<br>");s.appendChild(pb);
+  wrap.appendChild(s);
+
+  // Please check any of the following
+  s=sect("Please check any of the following:",true);
+  s.appendChild(tickList(CHECKS,x=>f.checks.includes(x),x=>toggleIn(f.checks,x),"grid2"));
+  wrap.appendChild(s);
+
+  // Hair condition
+  s=sect("How would you describe the typical condition of your hair",true);
+  s.appendChild(tickList(CONDITIONS,x=>f.conditions.includes(x),x=>toggleIn(f.conditions,x),"grid3"));
+  wrap.appendChild(s);
+
+  // Hair and scalp check
+  s=sect("Hair and scalp check");
+  ynQuestions(SCREENING,f.screening,s);
+  wrap.appendChild(s);
+
+  // Materials
+  s=sect("Materials used");
+  s.appendChild(el("div","hint","Optional. Pick from the list; the salon's own stock list will feed this once the backend is on."));
+  f.materials.forEach((m,i)=>{
+    const box=el("div","mat");
+    const sel=el("select");sel.appendChild(el("option","","Choose material"));
+    const groups={};MATERIALS.forEach(x=>{(groups[x.group||"Other"]=groups[x.group||"Other"]||[]).push(x);});
+    Object.keys(groups).forEach(g=>{const og=document.createElement("optgroup");og.label=g;groups[g].forEach(x=>{const o=el("option","",x.label);o.value=x.id;if(m.id===x.id)o.selected=true;og.appendChild(o);});sel.appendChild(og);});
+    sel.onchange=()=>{m.id=sel.value;const hit=MATERIALS.find(x=>x.id===sel.value);m.label=hit?hit.label:"";render();};
+    box.appendChild(sel);
+    const r2=el("div","row2");
+    const qty=txt(m.qty,"Qty",v=>{m.qty=v;},"number");qty.min="0";qty.step="0.5";r2.appendChild(qty);
+    const unit=el("select");MATERIAL_UNITS.forEach(u=>{const o=el("option","",u);o.value=u;if(m.unit===u)o.selected=true;unit.appendChild(o);});unit.onchange=()=>{m.unit=unit.value;};r2.appendChild(unit);
+    const rm=el("button","rm","Remove");rm.onclick=()=>{f.materials.splice(i,1);render();};r2.appendChild(rm);
+    box.appendChild(r2);s.appendChild(box);
+  });
+  const add=el("button","addbtn","+ Add material");add.onclick=()=>{f.materials.push({id:"",label:"",qty:"",unit:MATERIAL_UNITS[0]});render();};s.appendChild(add);
+  if(PHOTOS_ENABLED)s.appendChild(photoStrip());
+  s.appendChild(field("Notes",area(f.notes,"Anything else for the file",v=>{f.notes=v;}),true));
+  wrap.appendChild(s);
+
+  // Terms and conditions + sign off
+  s=sect("Terms and conditions");
+  const t=el("div","terms");
+  t.appendChild(el("p","shout",TERMS.headline));
+  const ol=el("ol");TERMS.points.forEach(p=>ol.appendChild(el("li","",p)));t.appendChild(ol);
+  t.appendChild(el("p","decl","**"+TERMS.declaration));
+  s.appendChild(t);
+  const acc=el("div","tick"+(f.termsAccepted?" on":""));acc.style.marginTop="10px";acc.appendChild(el("div","box",f.termsAccepted?"✓":""));acc.appendChild(el("div","t","I have read and accept the terms and conditions above"));acc.onclick=()=>{f.termsAccepted=!f.termsAccepted;render();};s.appendChild(acc);
+  const cs=el("div","field");cs.style.marginTop="12px";cs.appendChild(sigPad("clientSig"));cs.appendChild(el("div","sigline","Client's signature"+(f.fullName.trim()?" · "+f.fullName.trim():"")));s.appendChild(cs);
+  s.appendChild(el("div","hint","Date: "+prettyDate(todayISO())));
+  wrap.appendChild(s);
+
+  return wrap;
+}
+
+/* ---- signature pad ---- */
+function sigPad(key){
+  const box=el("div","sig");const c=document.createElement("canvas");box.appendChild(c);
+  if(!f[key])box.appendChild(el("div","ph","Sign here"));
+  const clr=el("button","clear","Clear");clr.onclick=()=>{f[key]="";render();};box.appendChild(clr);
+  let drawing=false,ctx;
+  requestAnimationFrame(()=>{const r=c.getBoundingClientRect();c.width=r.width*2;c.height=300;ctx=c.getContext("2d");ctx.scale(2,2);ctx.lineWidth=2.2;ctx.lineCap="round";ctx.strokeStyle="#2B2323";
+    if(f[key]){const img=new Image();img.onload=()=>ctx.drawImage(img,0,0,r.width,150);img.src=f[key];}});
+  const pos=e=>{const r=c.getBoundingClientRect();return [e.clientX-r.left,e.clientY-r.top];};
+  const start=e=>{e.preventDefault();drawing=true;const [x,y]=pos(e);ctx.beginPath();ctx.moveTo(x,y);const ph=box.querySelector(".ph");if(ph)ph.remove();};
+  const move=e=>{if(!drawing)return;e.preventDefault();const [x,y]=pos(e);ctx.lineTo(x,y);ctx.stroke();};
+  const end=()=>{if(!drawing)return;drawing=false;f[key]=c.toDataURL("image/png");const s=$(".send");if(s)s.disabled=!canSend();const m=$(".missing");if(m)m.textContent=missingText();};
+  c.addEventListener("pointerdown",start);c.addEventListener("pointermove",move);c.addEventListener("pointerup",end);c.addEventListener("pointerleave",end);
+  return box;
+}
+
+/* ---- photos ---- */
+function photoStrip(){
+  const d=el("div","field");d.style.marginTop="12px";d.appendChild(el("div","lab",'Before photos<span class="opt">optional</span>'));
+  const strip=el("div","photostrip");
+  (f.photoUrls||[]).forEach(u=>{const th=el("img","photothumb");th.src=u;th.onclick=()=>{lightbox=u;render();};strip.appendChild(th);});
+  const busy=!!uploading.before;const cam=el("button","cambtn",busy?"⏳ Uploading…":(f.photoUrls.length?"📷 Add another":"📷 Add photo"));cam.disabled=busy;
+  cam.onclick=()=>{const inp=document.createElement("input");inp.type="file";inp.accept="image/*";inp.setAttribute("capture","environment");
+    inp.onchange=async()=>{const file=inp.files&&inp.files[0];if(!file)return;uploading.before=true;render();let ok=false;
+      try{const du=await fileToDataUrl(file,1280,0.72);const url=await uploadPhoto(du,"before");if(url){f.photoUrls.push(url);ok=true;}}catch(e){}
+      delete uploading.before;render();if(!ok)alert("Photo did not upload. Try again.");};
+    inp.click();};
+  strip.appendChild(cam);d.appendChild(strip);return d;
+}
+function lightboxEl(){const l=el("div","lightbox");const i=el("img");i.src=lightbox;l.appendChild(i);l.onclick=()=>{lightbox=null;render();};return l;}
+
+/* ---- submit ---- */
+function missingText(){
+  if(!f.fullName.trim())return "Your full name is needed";
+  if(!f.phone.trim())return "A contact phone number is needed";
+  if(!ynDone(QUESTIONS,f.answers))return "Answer the Yes / No questions";
+  if(!f.hotTools)return "How often do you use hot tools?";
+  if(!f.conditions.length)return "Tick at least one hair condition";
+  if(!ynDone(SCREENING,f.screening))return "Finish the hair and scalp check";
+  if(!materialsDone())return "Each material needs a pick and a quantity";
+  if(!f.termsAccepted)return "Accept the terms and conditions";
+  if(!f.clientSig)return "Please sign above";
+  return "Ready to sign off";
+}
+function submitBar(){
+  const b=el("div","submitbar");const inr=el("div","in");
+  inr.appendChild(el("div","missing",missingText()));
+  const s=el("button","send","Sign off consultation");s.disabled=!canSend();s.onclick=doSubmit;inr.appendChild(s);b.appendChild(inr);return b;
+}
+async function doSubmit(){
+  if(!canSend())return;const b=$(".send");b.disabled=true;b.textContent="Saving...";
+  const rec={id:newId(),date:todayISO(),time:nowTime(),docket:"CON-"+todayISO().replace(/-/g,"")+"-"+initials(f.fullName),
+    fullName:f.fullName.trim(),phone:f.phone.trim(),email:f.email.trim(),address:f.address.trim(),
+    answers:JSON.parse(JSON.stringify(f.answers)),hotTools:f.hotTools,checks:f.checks.slice(),conditions:f.conditions.slice(),
+    screening:JSON.parse(JSON.stringify(f.screening)),materials:f.materials.map(m=>({id:m.id,label:m.label,qty:Number(m.qty),unit:m.unit})),
+    notes:f.notes.trim(),photoUrls:f.photoUrls.slice(),termsAccepted:f.termsAccepted,clientSig:f.clientSig,
+    flagged:flagReasons().length>0,flagReasons:flagReasons()};
+  try{await saveSubmission(rec);}catch(e){}
+  showReceipt(rec);
+}
+function showReceipt(rec){
+  const app=$("#app");app.innerHTML="";app.appendChild(header());
+  const wrap=el("div","wrap");const r=el("div","receipt");
+  r.appendChild(el("div","ok"));r.appendChild(el("h2","Thank you"));
+  r.appendChild(el("p","Thanks "+rec.fullName.split(" ")[0]+", your consultation form is done. Hand the tablet back to your stylist."));
+  r.appendChild(el("div","ref",rec.docket+" · "+rec.id));
+  const again=el("button",null,"Done");again.onclick=()=>{f=blankForm();view="form";render();};r.appendChild(again);
+  wrap.appendChild(r);app.appendChild(wrap);
+}
+
+/* ====================== HISTORY (PIN) ====================== */
+function renderHistory(app){
+  const wrap=el("div","wrap");
+  if(!histUnlocked){
+    const s=sect("Owner access");s.appendChild(el("div","hint","Past consultations. Enter the PIN to continue."));
+    const inp=el("input");inp.type="tel";inp.inputMode="numeric";inp.placeholder="PIN";inp.value=pinTry;inp.oninput=()=>{pinTry=inp.value;};
+    inp.onkeydown=e=>{if(e.key==="Enter")tryPin();};s.appendChild(inp);
+    if(pinErr)s.appendChild(el("div","err",pinErr));
+    const b=el("button","send","Unlock");b.style.marginTop="14px";b.onclick=tryPin;s.appendChild(b);
+    wrap.appendChild(s);app.appendChild(wrap);setTimeout(()=>inp.focus(),50);return;
+  }
+  const s=sect("Look up");
+  const inp=el("input");inp.type="text";inp.placeholder="Name, phone or email. Blank shows everything";inp.value=histQ;inp.oninput=()=>{histQ=inp.value;};
+  inp.onkeydown=e=>{if(e.key==="Enter")loadHist();};s.appendChild(inp);
+  const b=el("button","send","Search");b.style.marginTop="14px";b.onclick=loadHist;s.appendChild(b);
+  const lock=el("button","cambtn lock","Lock");lock.onclick=()=>{histUnlocked=false;try{localStorage.removeItem("evolve_hist_unlocked");}catch(e){}render();};s.appendChild(lock);
+  wrap.appendChild(s);
+  const list=el("div");
+  if(histData===null)list.appendChild(el("div","empty","Search to see consultations."));
+  else if(!histData.length)list.appendChild(el("div","empty","Nothing found."));
+  else{
+    const flagged=histData.filter(x=>x.flagged==="Yes").length;
+    const t=el("div","tally");t.appendChild(tile(histData.length,"Consults"));t.appendChild(tile(flagged,"Flagged"));t.appendChild(tile(new Set(histData.map(x=>(x.full_name||"").toLowerCase())).size,"Clients"));list.appendChild(t);
+    histData.slice().reverse().forEach(r=>list.appendChild(histCard(r)));
+  }
+  wrap.appendChild(list);app.appendChild(wrap);
+}
+function tryPin(){if(pinTry.trim()===HISTORY_PIN){histUnlocked=true;pinErr="";pinTry="";try{localStorage.setItem("evolve_hist_unlocked","1");}catch(e){}render();}else{pinErr="Wrong PIN, try again.";pinTry="";render();}}
+async function loadHist(){histData=await loadRecords(histQ);render();}
+function tile(n,l){const t=el("div","tile");t.appendChild(el("b",null,String(n)));t.appendChild(el("span",null,l));return t;}
+function histCard(r){
+  const c=el("div","card");const hd=el("div","hd");hd.appendChild(el("span",null,r.full_name||""));
+  hd.appendChild(el("span","badge"+(r.flagged==="Yes"?" warn":""),r.flagged==="Yes"?"FLAGGED":"OK"));c.appendChild(hd);
+  c.appendChild(el("div","sub",r.date+" "+r.time+" · "+r.docket));
+  const row=(k,v)=>{if(!v)return;const d=el("div","row");d.appendChild(el("div","k",k));d.appendChild(el("div","v",String(v)));c.appendChild(d);};
+  row("Phone",r.phone);row("Email",r.email);row("First set",r.q_first_set);row("Pregnant / bf",r.q_pregnant);row("Body changes",r.q_body+(r.q_body_note?" · "+r.q_body_note:""));row("Hot tools",r.hot_tools);row("Checked",r.checks);row("Condition",r.condition);row("Materials",r.materials);row("Flags",r.flag_reasons);row("Notes",r.notes);row("Terms",r.terms_accepted);
+  if(r.photo_urls){const st=el("div","photostrip");st.style.marginTop="8px";String(r.photo_urls).split(" ").filter(Boolean).forEach(u=>{const th=el("img","photothumb");th.src=u;th.onclick=()=>{lightbox=u;render();};st.appendChild(th);});c.appendChild(st);}
+  if(r.client_sig){const st=el("div","photostrip");st.style.marginTop="8px";const th=el("img","photothumb");th.style.width="140px";th.style.objectFit="contain";th.style.background="#fff";th.src=r.client_sig;st.appendChild(th);c.appendChild(st);}
+  return c;
+}
+
+/* ====================== GO ====================== */
+render();
+loadLists().then(()=>{if(view==="form")render();});
+</script>
+</body>
+</html>
